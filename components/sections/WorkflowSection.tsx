@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import MotionCard from "@/components/MotionCard";
 import { WorkflowSkeleton } from "@/components/Skeletons";
 import { usePortfolioData } from "@/lib/hooks/usePortfolioData";
+import { useLanguage } from "@/providers/LanguageProvider";
 
 const workflowColorMap = {
   cyan: {
@@ -22,6 +23,7 @@ const workflowColorMap = {
 
 export default function WorkflowSection() {
   const { data, isLoading } = usePortfolioData();
+  const { t } = useLanguage();
 
   if (isLoading || !data) {
     return <WorkflowSkeleton />;
@@ -35,15 +37,13 @@ export default function WorkflowSection() {
     >
       <div id="workflow" className="max-w-2xl space-y-3">
         <span className="text-xs font-mono font-bold text-pink-600 dark:text-brand-pink uppercase tracking-widest">
-          // AI-POWERED WORKFLOW
+          {t("workflow.badge")}
         </span>
         <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white">
-          Vibe-Coding Có Kiểm Soát (Zero-Blind Merge)
+          {t("workflow.title")}
         </h2>
         <p className="text-slate-600 dark:text-slate-400 text-sm">
-          Tôi sử dụng các AI Agent thế hệ mới (Cursor, GitHub Copilot, Claude)
-          như những trợ lý lập trình. Luôn nắm vai trò Tech Lead để review,
-          tái cấu trúc và làm chủ kiến trúc toàn bộ codebase.
+          {t("workflow.subtitle")}
         </p>
       </div>
 

@@ -3,10 +3,12 @@
 import MotionCard from "@/components/MotionCard";
 import { ExperienceSkeleton } from "@/components/Skeletons";
 import { usePortfolioData } from "@/lib/hooks/usePortfolioData";
+import { useLanguage } from "@/providers/LanguageProvider";
 import { Briefcase, Check, CheckCircle2, GraduationCap, Target } from "lucide-react";
 
 export default function ExperienceSection() {
   const { data, isLoading } = usePortfolioData();
+  const { t } = useLanguage();
 
   if (isLoading || !data) {
     return <ExperienceSkeleton />;
@@ -23,7 +25,7 @@ export default function ExperienceSection() {
         <div className="space-y-4">
           <h3 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
             <Briefcase className="w-5 h-5 text-cyan-600 dark:text-brand-cyan" />{" "}
-            Kinh Nghiệm Làm Việc
+            {t("exp.title")}
           </h3>
           <div className="space-y-6 text-xs">
             {data.experiences.map((exp) => (
@@ -75,7 +77,7 @@ export default function ExperienceSection() {
           <div className="pt-4 border-t border-slate-200 dark:border-brand-border space-y-4">
             <h3 className="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
               <GraduationCap className="w-5 h-5 text-purple-600 dark:text-brand-purple" />{" "}
-              Học Vấn
+              {t("exp.eduTitle")}
             </h3>
             <div className="space-y-3 text-xs">
               {data.education.map((edu) => (
@@ -106,31 +108,31 @@ export default function ExperienceSection() {
         <div className="space-y-4">
           <h3 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
             <Target className="w-5 h-5 text-pink-600 dark:text-brand-pink" />{" "}
-            Cam Kết Chuyên Môn & Định Hướng
+            {t("exp.commitTitle")}
           </h3>
           <ul className="text-xs text-slate-700 dark:text-slate-300 space-y-3 leading-relaxed">
             <li className="flex items-start gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-pink-600 dark:text-brand-pink shrink-0 mt-0.5" />
               <span>
-                <strong>Định Hướng Fullstack:</strong> Nâng cao kiến thức Java/Spring Boot & PostgreSQL, sẵn sàng đảm nhận các hệ thống ngân hàng & tài chính (Banking & Fintech).
+                <strong>{t("exp.commit1Title")}</strong> {t("exp.commit1Desc")}
               </span>
             </li>
             <li className="flex items-start gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-pink-600 dark:text-brand-pink shrink-0 mt-0.5" />
               <span>
-                <strong>Tối Ưu Trải Nghiệm & Hiệu Năng UI:</strong> Thành thạo xây dựng Rich-Text Editors (Lexical, Tiptap), Form đa bước phức tạp & Tích hợp cổng thanh toán Stripe.
+                <strong>{t("exp.commit2Title")}</strong> {t("exp.commit2Desc")}
               </span>
             </li>
             <li className="flex items-start gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-pink-600 dark:text-brand-pink shrink-0 mt-0.5" />
               <span>
-                <strong>Ownership & AI Vibe-Coding:</strong> Làm chủ quy trình phát triển từ BA spec đến UI/UX, áp dụng AI Agent để nhân bản tốc độ sản xuất code nhưng vẫn giữ Clean Architecture.
+                <strong>{t("exp.commit3Title")}</strong> {t("exp.commit3Desc")}
               </span>
             </li>
             <li className="flex items-start gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-pink-600 dark:text-brand-pink shrink-0 mt-0.5" />
               <span>
-                <strong>Linh Hoạt & Chịu Áp Lực:</strong> Đã quen với việc xử lý song song nhiều dự án client outsourcing, đáp ứng tiến độ release nghiêm ngặt.
+                <strong>{t("exp.commit4Title")}</strong> {t("exp.commit4Desc")}
               </span>
             </li>
           </ul>

@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import MotionCard from "@/components/MotionCard";
 import { TechStackSkeleton } from "@/components/Skeletons";
 import { usePortfolioData } from "@/lib/hooks/usePortfolioData";
+import { useLanguage } from "@/providers/LanguageProvider";
 import { BookOpen, Cpu, Database, Layers, Network, Palette, Terminal } from "lucide-react";
 
 const iconMap = {
@@ -44,6 +45,7 @@ const colorMap = {
 
 export default function TechStackSection() {
   const { data, isLoading } = usePortfolioData();
+  const { t } = useLanguage();
 
   if (isLoading || !data) {
     return <TechStackSkeleton />;
@@ -53,10 +55,10 @@ export default function TechStackSection() {
     <section id="stack" className="space-y-8">
       <FadeIn className="text-center max-w-2xl mx-auto space-y-3">
         <h2 className="text-xs font-mono font-bold text-cyan-600 dark:text-brand-cyan uppercase tracking-widest">
-          // TECH STACK & SKILLS
+          {t("stack.badge")}
         </h2>
         <p className="text-3xl font-extrabold text-slate-900 dark:text-white">
-          Kỹ Năng Kỹ Thuật & Công Nghệ Thực Chiến
+          {t("stack.title")}
         </p>
       </FadeIn>
 
@@ -105,7 +107,7 @@ export default function TechStackSection() {
           <div className="p-6 rounded-2xl bg-slate-900 text-white dark:bg-slate-900/90 border border-slate-800 shadow-md backdrop-blur-md space-y-3">
             <div className="flex items-center gap-2 text-brand-cyan font-mono text-xs font-bold uppercase tracking-wider">
               <BookOpen className="w-4 h-4 text-cyan-400" />
-              <span>Đang Học Hỏi & Trau Dồi Mở Rộng (Currently Learning)</span>
+              <span>{t("stack.learningBadge")}</span>
             </div>
             <div className="flex flex-wrap gap-2 pt-1 font-mono text-xs">
               {data.currentlyLearning.map((topic, idx) => (

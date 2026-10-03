@@ -1,11 +1,14 @@
 "use client";
 
+import LanguageToggle from "@/components/LanguageToggle";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useLanguage } from "@/providers/LanguageProvider";
 import { Code2, Cpu, Menu, User, X, Zap } from "lucide-react";
 import { useState } from "react";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <>
@@ -16,7 +19,7 @@ export default function Header() {
             className="font-mono text-base md:text-lg font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 dark:from-brand-cyan dark:to-brand-purple z-50 relative shrink-0"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            &lt;DEV.PORTFOLIO /&gt;
+            &lt;LINH.DEV /&gt;
           </a>
 
           {/* DESKTOP NAV */}
@@ -25,29 +28,30 @@ export default function Header() {
               href="#about"
               className="hover:text-cyan-600 dark:hover:text-brand-cyan transition-colors flex items-center gap-1"
             >
-              <User className="w-3.5 h-3.5" /> Về Tôi
+              <User className="w-3.5 h-3.5" /> {t("nav.about")}
             </a>
             <a
               href="#stack"
               className="hover:text-cyan-600 dark:hover:text-brand-cyan transition-colors flex items-center gap-1"
             >
-              <Cpu className="w-3.5 h-3.5" /> Tech Stack
+              <Cpu className="w-3.5 h-3.5" /> {t("nav.stack")}
             </a>
             <a
               href="#workflow"
               className="hover:text-cyan-600 dark:hover:text-brand-cyan transition-colors flex items-center gap-1"
             >
-              <Zap className="w-3.5 h-3.5" /> AI Workflow
+              <Zap className="w-3.5 h-3.5" /> {t("nav.workflow")}
             </a>
             <a
               href="#projects"
               className="hover:text-cyan-600 dark:hover:text-brand-cyan transition-colors flex items-center gap-1"
             >
-              <Code2 className="w-3.5 h-3.5" /> Dự Án
+              <Code2 className="w-3.5 h-3.5" /> {t("nav.projects")}
             </a>
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
+            <LanguageToggle />
             <ThemeToggle />
 
             <a
@@ -56,13 +60,14 @@ export default function Header() {
             >
               <span className="absolute inset-0 bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-pink group-hover:opacity-100 opacity-70 transition-opacity animate-gradient-x" />
               <span className="relative block px-4 py-2.5 rounded-[10px] bg-white dark:bg-brand-bg text-slate-900 dark:text-white group-hover:bg-transparent group-hover:text-white transition-colors">
-                Liên Hệ ⚡
+                {t("nav.contact")}
               </span>
             </a>
           </div>
 
           {/* MOBILE MENU BUTTON */}
-          <div className="flex items-center gap-4 md:hidden z-50 relative">
+          <div className="flex items-center gap-3 md:hidden z-50 relative">
+            <LanguageToggle />
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -85,7 +90,7 @@ export default function Header() {
               className="flex items-center gap-3 p-4 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-900 transition-colors"
             >
               <User className="w-5 h-5 text-cyan-600 dark:text-brand-cyan" /> 
-              <span className="font-bold">Về Tôi</span>
+              <span className="font-bold">{t("nav.about")}</span>
             </a>
             <a
               href="#stack"
@@ -93,7 +98,7 @@ export default function Header() {
               className="flex items-center gap-3 p-4 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-900 transition-colors"
             >
               <Cpu className="w-5 h-5 text-purple-600 dark:text-brand-purple" /> 
-              <span className="font-bold">Tech Stack</span>
+              <span className="font-bold">{t("nav.stack")}</span>
             </a>
             <a
               href="#workflow"
@@ -101,7 +106,7 @@ export default function Header() {
               className="flex items-center gap-3 p-4 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-900 transition-colors"
             >
               <Zap className="w-5 h-5 text-pink-600 dark:text-brand-pink" /> 
-              <span className="font-bold">AI Workflow</span>
+              <span className="font-bold">{t("nav.workflow")}</span>
             </a>
             <a
               href="#projects"
@@ -109,14 +114,14 @@ export default function Header() {
               className="flex items-center gap-3 p-4 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-900 transition-colors"
             >
               <Code2 className="w-5 h-5 text-emerald-600 dark:text-brand-emerald" /> 
-              <span className="font-bold">Dự Án</span>
+              <span className="font-bold">{t("nav.projects")}</span>
             </a>
             <a
               href="#contact"
               onClick={() => setIsMobileMenuOpen(false)}
               className="mt-4 text-center py-4 rounded-xl bg-slate-900 text-white dark:bg-brand-cyan dark:text-black font-bold shadow-md"
             >
-              Liên Hệ ⚡
+              {t("nav.contact")}
             </a>
           </nav>
         </div>

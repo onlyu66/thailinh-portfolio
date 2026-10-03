@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
+import { LanguageProvider } from "@/providers/LanguageProvider";
 import QueryProvider from "@/providers/QueryProvider";
 import ThemeProvider from "@/providers/ThemeProvider";
 
@@ -20,9 +21,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Frontend Engineer",
+  title: "Thai Ngoc Linh | Portfolio",
   description:
-    "Frontend Engineer chuyên sâu về React 18, Next.js, Strict TypeScript và Tailwind CSS.",
+    "Frontend Developer (React/Next.js) - Growing into Fullstack with Java/Spring Boot.",
 };
 
 export default function RootLayout({
@@ -36,9 +37,11 @@ export default function RootLayout({
         className={`${plusJakarta.variable} ${jetbrainsMono.variable} font-sans bg-slate-50 dark:bg-brand-bg text-slate-800 dark:text-slate-100 antialiased selection:bg-brand-cyan selection:text-black relative transition-colors duration-300 w-full overflow-x-hidden`}
         suppressHydrationWarning
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <QueryProvider>{children}</QueryProvider>
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+            <QueryProvider>{children}</QueryProvider>
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

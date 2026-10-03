@@ -1,16 +1,23 @@
 "use client";
 
+import { useLanguage } from "@/providers/LanguageProvider";
 import { useEffect, useState } from "react";
 
-const WORDS = [
-  "Frontend Developer (React.js / Next.js)",
-  "Growing into Fullstack (Java / Spring Boot)",
-  "Rich-Text Editor & Stripe Payment Specialist",
-  "AI Vibe-Coder x Clean Architecture",
-];
-
 export default function Typewriter() {
+  const { lang } = useLanguage();
   const [text, setText] = useState("");
+
+  const words = lang === "en" ? [
+    "Frontend Developer (React.js / Next.js)",
+    "Growing into Fullstack (Java / Spring Boot)",
+    "Rich-Text Editor & Stripe Payment Specialist",
+    "AI Vibe-Coder x Clean Architecture",
+  ] : [
+    "Frontend Developer (React.js / Next.js)",
+    "Định hướng Fullstack (Java / Spring Boot)",
+    "Rich-Text Editor & Stripe Payment Specialist",
+    "AI Vibe-Coder x Clean Architecture",
+  ];
 
   useEffect(() => {
     let wordIndex = 0;
@@ -19,7 +26,7 @@ export default function Typewriter() {
     let timer: ReturnType<typeof setTimeout>;
 
     function tick() {
-      const currentWord = WORDS[wordIndex];
+      const currentWord = words[wordIndex] || words[0];
 
       if (!deleting) {
         charIndex++;
@@ -37,7 +44,7 @@ export default function Typewriter() {
         setText(currentWord.slice(0, charIndex));
         if (charIndex === 0) {
           deleting = false;
-          wordIndex = (wordIndex + 1) % WORDS.length;
+          wordIndex = (wordIndex + 1) % words.length;
         }
         timer = setTimeout(tick, 40);
       }
@@ -45,7 +52,7 @@ export default function Typewriter() {
 
     timer = setTimeout(tick, 80);
     return () => clearTimeout(timer);
-  }, []);
+  }, [lang]);
 
   return (
     <div className="font-mono text-sm sm:text-xl text-cyan-600 dark:text-brand-cyan min-h-[32px] flex items-center font-bold flex-wrap">

@@ -1,11 +1,15 @@
-import { mockPortfolioData } from "@/lib/data/portfolioData";
-import { NextResponse } from "next/server";
+import { getPortfolioData } from "@/lib/data/portfolioData";
+import { NextRequest, NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 
-export async function GET() {
-  // Simulate API network latency (300ms)
-  await new Promise((resolve) => setTimeout(resolve, 300));
+export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url);
+  const langParam = searchParams.get("lang") === "en" ? "en" : "vi";
 
-  return NextResponse.json(mockPortfolioData);
+  // Simulate API network latency (150ms)
+  await new Promise((resolve) => setTimeout(resolve, 150));
+
+  const data = getPortfolioData(langParam);
+  return NextResponse.json(data);
 }

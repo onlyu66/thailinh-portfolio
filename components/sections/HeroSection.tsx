@@ -2,12 +2,14 @@
 
 import Typewriter from "@/components/Typewriter";
 import { usePortfolioData } from "@/lib/hooks/usePortfolioData";
+import { useLanguage } from "@/providers/LanguageProvider";
 import { motion } from "framer-motion";
 import { ArrowRight, Code, Github, Mail, MapPin, Phone } from "lucide-react";
 import { HeroSkeleton } from "../Skeletons";
 
 export default function HeroSection() {
   const { data, isLoading } = usePortfolioData();
+  const { t } = useLanguage();
 
   if (isLoading || !data) {
     return <HeroSkeleton />;
@@ -42,7 +44,7 @@ export default function HeroSection() {
         {/* Headline */}
         <div className="space-y-3">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-slate-900 dark:text-white break-words">
-            Xin chào, tôi là <br />
+            {t("hero.greeting")}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 dark:from-brand-cyan dark:via-brand-purple dark:to-brand-pink animate-gradient-x">
               {profile.name}
             </span>
@@ -84,7 +86,7 @@ export default function HeroSection() {
             href="#projects"
             className="px-6 py-3.5 rounded-xl bg-slate-900 text-white dark:bg-brand-cyan dark:text-black font-bold text-sm hover:opacity-90 transition-all shadow-md dark:shadow-[0_0_25px_rgba(0,240,255,0.3)] flex items-center gap-2"
           >
-            Xem Dự Án <ArrowRight className="w-4 h-4" />
+            {t("hero.viewProducts")} <ArrowRight className="w-4 h-4" />
           </motion.a>
           <motion.a
             whileHover={{ scale: 1.04, y: -2 }}
@@ -94,7 +96,7 @@ export default function HeroSection() {
             rel="noreferrer"
             className="px-6 py-3.5 rounded-xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border hover:border-slate-400 dark:hover:border-slate-500 text-slate-800 dark:text-white font-mono text-sm transition-all flex items-center gap-2 backdrop-blur-md shadow-sm"
           >
-            <Github className="w-4 h-4" /> GitHub Profile
+            <Github className="w-4 h-4" /> {t("hero.github")}
           </motion.a>
         </div>
       </motion.div>
@@ -117,7 +119,7 @@ export default function HeroSection() {
             </div>
             <div className="flex items-center gap-2 font-mono text-[11px] text-slate-500 dark:text-slate-400 bg-slate-200 dark:bg-slate-900/80 px-3 py-1 rounded-md border border-slate-300 dark:border-slate-800">
               <Code className="w-3 h-3 text-cyan-600 dark:text-brand-cyan" />{" "}
-              Engineer.config.ts
+              {t("hero.configTitle")}
             </div>
           </div>
 
@@ -132,19 +134,15 @@ export default function HeroSection() {
             = {"{"}
             {"\n"}  name:{" "}
             <span className="text-emerald-600 dark:text-emerald-400">
-              &apos;Thái Ngọc Linh&apos;
+              &apos;{profile.name}&apos;
             </span>
             ,{"\n"}  role:{" "}
             <span className="text-emerald-600 dark:text-emerald-400">
-              &apos;Frontend Developer (React/Next.js)&apos;
+              &apos;{profile.role}&apos;
             </span>
             ,{"\n"}  growingTarget:{" "}
             <span className="text-emerald-600 dark:text-emerald-400">
-              &apos;Fullstack (Java/Spring Boot)&apos;
-            </span>
-            ,{"\n"}  experience:{" "}
-            <span className="text-emerald-600 dark:text-emerald-400">
-              &apos;2+ Years (7 Client Web Projects)&apos;
+              &apos;{profile.subRole}&apos;
             </span>
             ,{"\n"}  frontendStack: [
             <span className="text-emerald-600 dark:text-emerald-400">
@@ -170,23 +168,11 @@ export default function HeroSection() {
             <span className="text-emerald-600 dark:text-emerald-400">
               &apos;PostgreSQL&apos;
             </span>
-            ,{" "}
-            <span className="text-emerald-600 dark:text-emerald-400">
-              &apos;Docker&apos;
-            </span>
             ],{"\n"}  workflow:{" "}
             <span className="text-emerald-600 dark:text-emerald-400">
               &apos;AI Vibe-Coding x Clean Architecture&apos;
             </span>
-            ,{"\n"}  targetDomains: [
-            <span className="text-emerald-600 dark:text-emerald-400">
-              &apos;Banking&apos;
-            </span>
-            ,{" "}
-            <span className="text-emerald-600 dark:text-emerald-400">
-              &apos;Fintech&apos;
-            </span>
-            ],{"\n"}
+            ,{"\n"}
             {"};"}
           </pre>
         </div>

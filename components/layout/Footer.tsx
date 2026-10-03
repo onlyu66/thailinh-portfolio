@@ -1,10 +1,12 @@
 "use client";
 
 import { usePortfolioData } from "@/lib/hooks/usePortfolioData";
+import { useLanguage } from "@/providers/LanguageProvider";
 import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   const { data } = usePortfolioData();
+  const { t } = useLanguage();
   const profile = data?.profile;
 
   const email = profile?.email || "ngoclinhthai8@gmail.com";
@@ -21,10 +23,10 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 text-center space-y-8">
         <div className="max-w-3xl mx-auto space-y-3">
           <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white">
-            Hãy Cùng Nhau Xây Dựng Sản Phẩm Tuyệt Vời⚡
+            {t("footer.title")}
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-sm">
-            Tôi luôn sẵn sàng tiếp nhận các dự án và cơ hội công việc mới (Frontend / Fullstack Java/Spring Boot).
+            {t("footer.subtitle")}
           </p>
         </div>
 
@@ -63,7 +65,7 @@ export default function Footer() {
         </div>
 
         <p className="text-xs text-slate-500 dark:text-slate-600 font-mono pt-8">
-          © 2026 Thái Ngọc Linh · Built with React 18, Next.js, Tailwind CSS & AI Tools.
+          © 2026 {t("footer.copyright")}
         </p>
       </div>
     </footer>

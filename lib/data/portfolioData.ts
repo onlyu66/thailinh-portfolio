@@ -1,6 +1,6 @@
 import { PortfolioData } from "@/lib/types/portfolio";
 
-export const mockPortfolioData: PortfolioData = {
+export const mockPortfolioDataVi: PortfolioData = {
   profile: {
     name: "Thái Ngọc Linh",
     role: "Frontend Developer (React/Next.js)",
@@ -186,3 +186,196 @@ export const mockPortfolioData: PortfolioData = {
     },
   ],
 };
+
+export const mockPortfolioDataEn: PortfolioData = {
+  profile: {
+    name: "Thai Ngoc Linh",
+    role: "Frontend Developer (React/Next.js)",
+    subRole: "Growing into Fullstack with Java/Spring Boot",
+    status: "2+ years in Software Outsourcing | Aiming for Fullstack Banking & Fintech",
+    bio: "Frontend Developer with 2+ years in software outsourcing, delivering 7 client web projects across different domains, often in parallel, with React.js, Next.js and TypeScript. Strong in complex UI (rich-text editor, dynamic multi-step forms) and payment flows (Stripe Connect). Building a Java/Spring Boot backend foundation through a RESTful API project, aiming to grow into a Fullstack role in banking and fintech.",
+    email: "ngoclinhthai8@gmail.com",
+    phone: "+84 362 253 173",
+    location: "Hanoi, Vietnam",
+    github: "https://github.com/linhtn-dev",
+    linkedin: "https://linkedin.com/in/linhtn-dev",
+    coreStack: ["React.js", "Next.js", "TypeScript"],
+    uiSystem: ["Tailwind CSS", "Material UI (MUI)", "Ant Design"],
+    backendStack: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
+    workflow: "AI Vibe-Coding x Clean Architecture",
+    codeQuality: {
+      strictTypeScript: true,
+      unitTesting: true,
+      performanceFirst: true,
+      zeroBlindMerge: true,
+    },
+  },
+  techStack: [
+    {
+      id: "stack-1",
+      title: "Frontend (Strong)",
+      description:
+        "React.js, Next.js, TypeScript, JavaScript (ES6+), HTML5/CSS3, Tailwind CSS, Material UI (MUI), Ant Design.",
+      iconName: "Layers",
+      categoryColor: "cyan",
+      skills: ["React.js", "Next.js", "TypeScript", "JavaScript (ES6+)", "Tailwind CSS", "Material UI", "Ant Design"],
+    },
+    {
+      id: "stack-2",
+      title: "State & Data Management",
+      description:
+        "Redux, Zustand, Jotai, TanStack Query (React Query), Axios, React Hook Form + Zod validation.",
+      iconName: "Cpu",
+      categoryColor: "purple",
+      skills: ["Redux", "Zustand", "Jotai", "TanStack Query", "Axios", "React Hook Form + Zod"],
+    },
+    {
+      id: "stack-3",
+      title: "Backend (Working Knowledge)",
+      description:
+        "Java, Spring Boot, Spring Data JPA, Spring Security, JWT, REST API design, JUnit testing.",
+      iconName: "Database",
+      categoryColor: "emerald",
+      skills: ["Java", "Spring Boot", "Spring Data JPA", "Spring Security", "JWT", "REST API", "JUnit"],
+    },
+    {
+      id: "stack-4",
+      title: "Database & DevOps & Tools",
+      description:
+        "SQL, PostgreSQL, Docker, Maven, Git/GitHub, Vite, Postman, Swagger, Figma-to-Code, AI-assisted development.",
+      iconName: "Terminal",
+      categoryColor: "pink",
+      skills: ["SQL", "PostgreSQL", "Docker", "Maven", "Git/GitHub", "Vite", "Postman", "Swagger", "AI Vibe Coding"],
+    },
+  ],
+  currentlyLearning: [
+    "Microservices Architecture",
+    "Redis Caching",
+    "Apache Kafka",
+    "CI/CD Pipeline Automation",
+    "Frontend Unit Testing (Vitest, React Testing Library)",
+  ],
+  workflow: [
+    {
+      id: "wf-1",
+      stepNumber: "01. Spec & Interface Contract",
+      title: "Task Breakdown & Type Definition",
+      description:
+        "Break down Product Requirements into detailed sub-tasks, strictly define Interfaces & Types with TypeScript before delegating to AI.",
+      color: "cyan",
+    },
+    {
+      id: "wf-2",
+      stepNumber: "02. AI-Assisted Development",
+      title: "Context Prompting & Speed Boost",
+      description:
+        "Provide full Design System, Folder Structure and Naming Conventions to enable AI Agents to generate accurate code on the first attempt.",
+      color: "purple",
+    },
+    {
+      id: "wf-3",
+      stepNumber: "03. Code Audit & QA Test",
+      title: "Code Review & Quality Control",
+      description:
+        "Directly review code, run Unit Tests, and refactor logic to prevent memory leaks and performance regressions (Zero-Blind Merge).",
+      color: "pink",
+    },
+  ],
+  projects: [
+    {
+      id: "proj-1",
+      tag: "FRONTEND / MARKETPLACE",
+      period: "2024 – Present",
+      title: "Candee — Marketplace Connecting Manga Artists with Assistants",
+      description:
+        "Marketplace connecting manga artists with assistants. Integrated advanced rich-text editing tools and Stripe Connect payment flow.",
+      highlights: [
+        "Built a custom Lexical rich-text and multimedia editor (text, video, audio).",
+        "Integrated Stripe Connect payment screens and seller onboarding.",
+        "Managed complex forms with React Hook Form + Zod & Zustand state.",
+      ],
+      techStack: ["Next.js", "TypeScript", "MUI", "Zustand", "React Hook Form", "Zod", "Lexical", "Stripe Connect"],
+      color: "cyan",
+    },
+    {
+      id: "proj-2",
+      tag: "FRONTEND / ADMIN CMS",
+      period: "2024 – Present",
+      title: "Rakori (Admin CMS) — Matchmaking Platform for JP & KR Users",
+      description:
+        "Admin CMS for a matchmaking platform targeting Japanese and Korean users, supporting multilingual UI, large data tables, and analytics dashboards.",
+      highlights: [
+        "Built a Tiptap rich-text editor sanitized with DOMPurify to prevent XSS vulnerabilities.",
+        "Built interactive data tables and statistical charts with Recharts dashboard.",
+        "Implemented multilingual UI (react-i18next) & async query state management with TanStack Query.",
+      ],
+      techStack: ["React 19", "Vite", "TypeScript", "Tailwind CSS", "TanStack Query", "TanStack Table", "Tiptap", "Recharts", "react-i18next"],
+      color: "purple",
+    },
+    {
+      id: "proj-3",
+      tag: "FRONTEND / PROPTECH",
+      period: "2024",
+      title: "Wurinc (Rental Module) — Real Estate Platform",
+      description:
+        "Rental management module for Wurinc real estate platform, handling property listings, lease agreements, and report generation.",
+      highlights: [
+        "Developed interactive data tables with Drag-and-Drop support.",
+        "Integrated client-side PDF export and print capabilities for lease contracts.",
+        "Optimized API query caching with TanStack Query and global state management with Zustand.",
+      ],
+      techStack: ["Next.js", "TypeScript", "MUI", "TanStack Query", "TanStack Table", "Zustand", "PDF Export"],
+      color: "pink",
+    },
+    {
+      id: "proj-4",
+      tag: "PERSONAL BACKEND / FULLSTACK",
+      period: "2024 – Present",
+      title: "AI Tech Marketplace — Tech E-Commerce with AI Shopping Assistant",
+      description:
+        "Personal Fullstack / Backend project building Java/Spring Boot proficiency. Tech e-commerce platform with an AI-powered Shopping Assistant.",
+      highlights: [
+        "Designed RESTful APIs (Controller, Service, Repository) for catalog, comparison, ordering and accounts.",
+        "Persisted data in PostgreSQL with Spring Data JPA; secured APIs with Spring Security & JWT.",
+        "Added validation, exception handling, and logging; wrote JUnit tests and containerized with Docker.",
+      ],
+      techStack: ["Java", "Spring Boot", "Spring Data JPA", "Spring Security", "JWT", "PostgreSQL", "Docker", "JUnit"],
+      color: "emerald",
+      githubUrl: "https://github.com/linhtn-dev",
+    },
+  ],
+  otherProjects: ["Salon Online", "ITFor", "Demonopol", "SP Tyres E-learning System"],
+  experiences: [
+    {
+      id: "exp-1",
+      role: "Frontend Developer",
+      company: "Solashi Holdings",
+      location: "Hanoi, Vietnam",
+      period: "Jan 2024 – Present",
+      description:
+        "Software Outsourcing / Offshore Development. Delivered and maintained production web apps for 7 client projects with React.js, Next.js and TypeScript.",
+      highlights: [
+        "Delivered and maintained production web apps for 7 client projects, handling several in parallel across different domains.",
+        "Built a reusable Rich Text & Multimedia Editor (text, video, audio) and Dynamic Multi-step Forms (conditional fields, state kept across steps), connected to REST APIs.",
+        "Turned Figma designs into responsive, mobile-first UIs; worked with Designers and BAs to clarify requirements and refine UX.",
+        "Integrated APIs with Axios and TanStack Query, managed state with Redux, Zustand, Context API and Jotai; took part in Pull Requests and Code Reviews.",
+      ],
+      isCurrent: true,
+    },
+  ],
+  education: [
+    {
+      id: "edu-1",
+      degree: "Bachelor of Information Systems",
+      school: "Hanoi University of Industry",
+      period: "Oct 2020 – Aug 2024",
+      major: "Information Systems",
+    },
+  ],
+};
+
+export const mockPortfolioData = mockPortfolioDataVi;
+
+export function getPortfolioData(lang: "vi" | "en" = "vi"): PortfolioData {
+  return lang === "en" ? mockPortfolioDataEn : mockPortfolioDataVi;
+}

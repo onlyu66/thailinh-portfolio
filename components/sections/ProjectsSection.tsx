@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import MotionCard from "@/components/MotionCard";
 import { ProjectsSkeleton } from "@/components/Skeletons";
 import { usePortfolioData } from "@/lib/hooks/usePortfolioData";
+import { useLanguage } from "@/providers/LanguageProvider";
 import { Check, FolderGit2, Github } from "lucide-react";
 
 const projectColorMap = {
@@ -44,6 +45,7 @@ const projectColorMap = {
 
 export default function ProjectsSection() {
   const { data, isLoading } = usePortfolioData();
+  const { t } = useLanguage();
 
   if (isLoading || !data) {
     return <ProjectsSkeleton />;
@@ -54,10 +56,10 @@ export default function ProjectsSection() {
       <FadeIn className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div className="space-y-2">
           <h2 className="text-xs font-mono font-bold text-cyan-600 dark:text-brand-cyan uppercase tracking-widest">
-            // KEY PROJECTS
+            {t("projects.badge")}
           </h2>
           <p className="text-3xl font-extrabold text-slate-900 dark:text-white">
-            Dự Án Nổi Bật & Thực Chiến
+            {t("projects.title")}
           </p>
         </div>
       </FadeIn>
@@ -124,7 +126,7 @@ export default function ProjectsSection() {
                     rel="noreferrer"
                     className="inline-flex items-center gap-1 text-xs font-mono font-bold text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-brand-cyan transition-colors shrink-0"
                   >
-                    <Github className="w-3.5 h-3.5" /> Source
+                    <Github className="w-3.5 h-3.5" /> {t("projects.source")}
                   </a>
                 )}
               </div>
@@ -139,10 +141,10 @@ export default function ProjectsSection() {
           <div className="p-6 rounded-2xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border backdrop-blur-md space-y-3">
             <div className="flex items-center gap-2 text-slate-800 dark:text-slate-200 font-mono text-xs font-bold uppercase tracking-wider">
               <FolderGit2 className="w-4 h-4 text-purple-600 dark:text-brand-purple" />
-              <span>Dự Án Client Khác (Software Outsourcing tại Solashi)</span>
+              <span>{t("projects.otherTitle")}</span>
             </div>
             <p className="text-slate-600 dark:text-slate-400 text-xs">
-              Tham gia phát triển, tùy biến UI & bảo trì sản phẩm cho các dự án khách hàng:
+              {t("projects.otherDesc")}
             </p>
             <div className="flex flex-wrap gap-2 pt-1 font-mono text-xs">
               {data.otherProjects.map((pName, idx) => (
