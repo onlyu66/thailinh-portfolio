@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="vi" className="scroll-smooth overflow-x-hidden" suppressHydrationWarning>
       <body
         className={`${plusJakarta.variable} ${jetbrainsMono.variable} font-sans bg-slate-50 dark:bg-brand-bg text-slate-800 dark:text-slate-100 antialiased selection:bg-brand-cyan selection:text-black relative transition-colors duration-300 w-full overflow-x-hidden`}
         suppressHydrationWarning

@@ -21,7 +21,7 @@ export default function Home() {
       {/* NAVIGATION BAR */}
       <Header />
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 space-y-20 md:space-y-32 pt-28 pb-12 md:pb-16">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 space-y-20 md:space-y-32 pt-24 sm:pt-28 pb-12 md:pb-16 w-full min-w-0 overflow-hidden">
         {/* HERO SECTION */}
         <HeroSection />
 
