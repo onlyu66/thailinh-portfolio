@@ -18,39 +18,39 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="border-t border-slate-200 dark:border-brand-border bg-slate-100 dark:bg-slate-950/80 py-16 backdrop-blur-xl transition-colors duration-300"
+      className="border-t border-slate-200 dark:border-brand-border bg-slate-100 dark:bg-slate-950/80 py-12 sm:py-16 backdrop-blur-xl transition-colors duration-300"
     >
-      <div className="max-w-6xl mx-auto px-6 text-center space-y-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center space-y-8">
         <div className="max-w-3xl mx-auto space-y-3">
-          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
             {t("footer.title")}
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-sm">
+          <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
             {t("footer.subtitle")}
           </p>
         </div>
 
-        <div className="flex justify-center flex-wrap gap-4 font-mono text-xs">
+        <div className="flex justify-center flex-wrap gap-2.5 sm:gap-4 font-mono text-xs">
           <a
             href={`mailto:${email}`}
-            className="px-6 py-3.5 rounded-xl bg-slate-900 text-white dark:bg-brand-cyan dark:text-black font-bold hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
+            className="px-4 py-3 sm:px-6 sm:py-3.5 rounded-xl bg-slate-900 text-white dark:bg-brand-cyan dark:text-black font-bold hover:opacity-90 transition-all flex items-center gap-2 shadow-sm shrink-0"
           >
-            <Mail className="w-4 h-4" /> {email}
+            <Mail className="w-4 h-4" /> <span className="truncate">{email}</span>
           </a>
           <a
             href={`tel:${phone}`}
-            className="px-6 py-3.5 rounded-xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border hover:border-slate-400 dark:hover:border-slate-500 text-slate-800 dark:text-white transition-all flex items-center gap-2 shadow-sm"
+            className="px-4 py-3 sm:px-6 sm:py-3.5 rounded-xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border hover:border-slate-400 dark:hover:border-slate-500 text-slate-800 dark:text-white transition-all flex items-center gap-2 shadow-sm shrink-0"
           >
             <Phone className="w-4 h-4 text-purple-600 dark:text-brand-purple" /> {phone}
           </a>
-          <span className="px-6 py-3.5 rounded-xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border text-slate-800 dark:text-white flex items-center gap-2 shadow-sm">
+          <span className="px-4 py-3 sm:px-6 sm:py-3.5 rounded-xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border text-slate-800 dark:text-white flex items-center gap-2 shadow-sm shrink-0">
             <MapPin className="w-4 h-4 text-cyan-600 dark:text-brand-cyan" /> {location}
           </span>
           <a
             href={github}
             target="_blank"
             rel="noreferrer"
-            className="px-6 py-3.5 rounded-xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border hover:border-slate-400 dark:hover:border-slate-500 text-slate-800 dark:text-white transition-all flex items-center gap-2 shadow-sm"
+            className="px-4 py-3 sm:px-6 sm:py-3.5 rounded-xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border hover:border-slate-400 dark:hover:border-slate-500 text-slate-800 dark:text-white transition-all flex items-center gap-2 shadow-sm shrink-0"
           >
             <Github className="w-4 h-4" /> GitHub
           </a>
@@ -58,13 +58,13 @@ export default function Footer() {
             href={linkedin}
             target="_blank"
             rel="noreferrer"
-            className="px-6 py-3.5 rounded-xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border hover:border-slate-400 dark:hover:border-slate-500 text-slate-800 dark:text-white transition-all flex items-center gap-2 shadow-sm"
+            className="px-4 py-3 sm:px-6 sm:py-3.5 rounded-xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border hover:border-slate-400 dark:hover:border-slate-500 text-slate-800 dark:text-white transition-all flex items-center gap-2 shadow-sm shrink-0"
           >
             <Linkedin className="w-4 h-4" /> LinkedIn
           </a>
         </div>
 
-        <p className="text-xs text-slate-500 dark:text-slate-600 font-mono pt-8">
+        <p className="text-xs text-slate-500 dark:text-slate-600 font-mono pt-6 sm:pt-8">
           © 2026 {t("footer.copyright")}
         </p>
       </div>

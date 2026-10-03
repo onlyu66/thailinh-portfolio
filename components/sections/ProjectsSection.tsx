@@ -52,19 +52,19 @@ export default function ProjectsSection() {
   }
 
   return (
-    <section id="projects" className="space-y-8">
+    <section id="projects" className="space-y-6 sm:space-y-8">
       <FadeIn className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div className="space-y-2">
           <h2 className="text-xs font-mono font-bold text-cyan-600 dark:text-brand-cyan uppercase tracking-widest">
             {t("projects.badge")}
           </h2>
-          <p className="text-3xl font-extrabold text-slate-900 dark:text-white">
+          <p className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
             {t("projects.title")}
           </p>
         </div>
       </FadeIn>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-6 md:gap-8">
         {data.projects.map((project, index) => {
           const style =
             projectColorMap[project.color] || projectColorMap.cyan;
@@ -74,22 +74,22 @@ export default function ProjectsSection() {
               key={project.id}
               delay={0.1 * (index + 1)}
               hoverY={-6}
-              className={`p-6 rounded-2xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border ${style.hover} transition-colors duration-300 backdrop-blur-md space-y-5 group shadow-sm hover:shadow-xl ${style.shadow}`}
+              className={`p-5 sm:p-6 rounded-2xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border ${style.hover} transition-colors duration-300 backdrop-blur-md space-y-4 sm:space-y-5 group shadow-sm hover:shadow-xl ${style.shadow}`}
             >
               <div className="flex items-center justify-between gap-2 flex-wrap">
                 <span
-                  className={`text-xs font-mono px-3 py-1 rounded-full border font-semibold ${style.badge}`}
+                  className={`text-[11px] sm:text-xs font-mono px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border font-semibold ${style.badge}`}
                 >
                   {project.tag}
                 </span>
-                <span className="text-xs font-mono text-slate-500">
+                <span className="text-[11px] sm:text-xs font-mono text-slate-500">
                   {project.period}
                 </span>
               </div>
 
               <div className="space-y-2">
                 <h3
-                  className={`text-xl font-bold text-slate-900 dark:text-white ${style.titleHover} transition-colors`}
+                  className={`text-lg sm:text-xl font-bold text-slate-900 dark:text-white ${style.titleHover} transition-colors leading-snug`}
                 >
                   {project.title}
                 </h3>
@@ -100,14 +100,14 @@ export default function ProjectsSection() {
 
               <ul className="text-xs text-slate-700 dark:text-slate-300 space-y-2 font-sans">
                 {project.highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
+                  <li key={idx} className="flex items-start gap-2 leading-relaxed">
                     <Check className={`w-4 h-4 ${style.icon}`} />
                     <span>{highlight}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="flex items-center justify-between gap-4 pt-3 border-t border-slate-200 dark:border-brand-border">
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-200 dark:border-brand-border">
                 <div className="flex flex-wrap gap-1.5 text-[11px] font-mono text-slate-600 dark:text-slate-400">
                   {project.techStack.map((tech, idx) => (
                     <span
@@ -138,19 +138,19 @@ export default function ProjectsSection() {
       {/* OTHER CLIENT PROJECTS */}
       {data.otherProjects && data.otherProjects.length > 0 && (
         <FadeIn delay={0.4}>
-          <div className="p-6 rounded-2xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border backdrop-blur-md space-y-3">
+          <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border backdrop-blur-md space-y-3">
             <div className="flex items-center gap-2 text-slate-800 dark:text-slate-200 font-mono text-xs font-bold uppercase tracking-wider">
-              <FolderGit2 className="w-4 h-4 text-purple-600 dark:text-brand-purple" />
+              <FolderGit2 className="w-4 h-4 text-purple-600 dark:text-brand-purple shrink-0" />
               <span>{t("projects.otherTitle")}</span>
             </div>
-            <p className="text-slate-600 dark:text-slate-400 text-xs">
+            <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
               {t("projects.otherDesc")}
             </p>
             <div className="flex flex-wrap gap-2 pt-1 font-mono text-xs">
               {data.otherProjects.map((pName, idx) => (
                 <span
                   key={idx}
-                  className="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 font-bold"
+                  className="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 font-bold"
                 >
                   ⚡ {pName}
                 </span>
