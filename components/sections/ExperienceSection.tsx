@@ -3,7 +3,7 @@
 import MotionCard from "@/components/MotionCard";
 import { ExperienceSkeleton } from "@/components/Skeletons";
 import { usePortfolioData } from "@/lib/hooks/usePortfolioData";
-import { Briefcase, CheckCircle2, Target } from "lucide-react";
+import { Briefcase, Check, CheckCircle2, GraduationCap, Target } from "lucide-react";
 
 export default function ExperienceSection() {
   const { data, isLoading } = usePortfolioData();
@@ -14,72 +14,127 @@ export default function ExperienceSection() {
 
   return (
     <section className="grid sm:grid-cols-2 gap-8">
+      {/* EXPERIENCE & EDUCATION CARD */}
       <MotionCard
         direction="left"
         hoverY={-4}
-        className="p-6 rounded-2xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border backdrop-blur-md space-y-4 shadow-sm hover:border-cyan-500/50 dark:hover:border-brand-cyan/40 transition-colors"
+        className="p-6 rounded-2xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border backdrop-blur-md space-y-6 shadow-sm hover:border-cyan-500/50 dark:hover:border-brand-cyan/40 transition-colors"
       >
-        <h3 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
-          <Briefcase className="w-5 h-5 text-cyan-600 dark:text-brand-cyan" />{" "}
-          Kinh Nghiệm Làm Việc
-        </h3>
-        <div className="space-y-4 text-xs">
-          {data.experiences.map((exp) => (
-            <div
-              key={exp.id}
-              className={`border-l-2 ${
-                exp.isCurrent
-                  ? "border-cyan-600 dark:border-brand-cyan"
-                  : "border-slate-300 dark:border-slate-700"
-              } pl-4 space-y-1`}
-            >
-              <div className="font-bold text-slate-900 dark:text-white text-sm">
-                {exp.role} — {exp.company}
+        <div className="space-y-4">
+          <h3 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
+            <Briefcase className="w-5 h-5 text-cyan-600 dark:text-brand-cyan" />{" "}
+            Kinh Nghiệm Làm Việc
+          </h3>
+          <div className="space-y-6 text-xs">
+            {data.experiences.map((exp) => (
+              <div
+                key={exp.id}
+                className={`border-l-2 ${
+                  exp.isCurrent
+                    ? "border-cyan-600 dark:border-brand-cyan"
+                    : "border-slate-300 dark:border-slate-700"
+                } pl-4 space-y-2`}
+              >
+                <div>
+                  <div className="font-bold text-slate-900 dark:text-white text-sm">
+                    {exp.role} — {exp.company}
+                  </div>
+                  {exp.location && (
+                    <div className="text-[11px] text-slate-500 font-sans">
+                      {exp.location}
+                    </div>
+                  )}
+                  <div className="font-mono text-cyan-600 dark:text-brand-cyan font-semibold pt-0.5">
+                    {exp.period}
+                  </div>
+                </div>
+
+                {exp.description && (
+                  <p className="text-slate-600 dark:text-slate-400 font-medium">
+                    {exp.description}
+                  </p>
+                )}
+
+                {exp.highlights && exp.highlights.length > 0 && (
+                  <ul className="space-y-1.5 pt-1 text-slate-600 dark:text-slate-300">
+                    {exp.highlights.map((h, idx) => (
+                      <li key={idx} className="flex items-start gap-1.5">
+                        <Check className="w-3.5 h-3.5 text-cyan-600 dark:text-brand-cyan shrink-0 mt-0.5" />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
-              <div className="font-mono text-slate-500">{exp.period}</div>
-              {exp.description && (
-                <p className="text-slate-600 dark:text-slate-400 pt-1">
-                  {exp.description}
-                </p>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
+        {/* EDUCATION SECTION */}
+        {data.education && data.education.length > 0 && (
+          <div className="pt-4 border-t border-slate-200 dark:border-brand-border space-y-4">
+            <h3 className="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+              <GraduationCap className="w-5 h-5 text-purple-600 dark:text-brand-purple" />{" "}
+              Học Vấn
+            </h3>
+            <div className="space-y-3 text-xs">
+              {data.education.map((edu) => (
+                <div
+                  key={edu.id}
+                  className="border-l-2 border-purple-500 dark:border-brand-purple/60 pl-4 space-y-1"
+                >
+                  <div className="font-bold text-slate-900 dark:text-white text-sm">
+                    {edu.degree}
+                  </div>
+                  <div className="text-slate-700 dark:text-slate-300 font-medium">
+                    {edu.school}
+                  </div>
+                  <div className="font-mono text-slate-500">{edu.period}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </MotionCard>
 
+      {/* COMMITMENTS & CAREER GOALS CARD */}
       <MotionCard
         direction="right"
         hoverY={-4}
-        className="p-6 rounded-2xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border backdrop-blur-md space-y-4 shadow-sm hover:border-pink-500/50 dark:hover:border-brand-pink/40 transition-colors"
+        className="p-6 rounded-2xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border backdrop-blur-md space-y-6 shadow-sm hover:border-pink-500/50 dark:hover:border-brand-pink/40 transition-colors"
       >
-        <h3 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
-          <Target className="w-5 h-5 text-pink-600 dark:text-brand-pink" />{" "}
-          Cam Kết Chuyên Môn
-        </h3>
-        <ul className="text-xs text-slate-700 dark:text-slate-300 space-y-3 leading-relaxed">
-          <li className="flex items-start gap-2.5">
-            <CheckCircle2 className="w-4 h-4 text-pink-600 dark:text-brand-pink shrink-0 mt-0.5" />
-            <span>
-              <strong>Ownership Cao:</strong> Coi sản phẩm như của mình, chủ
-              động tìm giải pháp tối ưu nhất cho bài toán kinh doanh.
-            </span>
-          </li>
-          <li className="flex items-start gap-2.5">
-            <CheckCircle2 className="w-4 h-4 text-pink-600 dark:text-brand-pink shrink-0 mt-0.5" />
-            <span>
-              <strong>Growth Mindset:</strong> Luôn cập nhật công nghệ mới, đặc
-              biệt là xu hướng tích hợp AI vào Software Engineering.
-            </span>
-          </li>
-          <li className="flex items-start gap-2.5">
-            <CheckCircle2 className="w-4 h-4 text-pink-600 dark:text-brand-pink shrink-0 mt-0.5" />
-            <span>
-              <strong>Linh Hoạt & Chịu Áp Lực:</strong> Thích ứng nhanh với thay
-              đổi, sẵn sàng OT tập trung vào các giai đoạn Go-live/Sprint
-              Release.
-            </span>
-          </li>
-        </ul>
+        <div className="space-y-4">
+          <h3 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
+            <Target className="w-5 h-5 text-pink-600 dark:text-brand-pink" />{" "}
+            Cam Kết Chuyên Môn & Định Hướng
+          </h3>
+          <ul className="text-xs text-slate-700 dark:text-slate-300 space-y-3 leading-relaxed">
+            <li className="flex items-start gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-pink-600 dark:text-brand-pink shrink-0 mt-0.5" />
+              <span>
+                <strong>Định Hướng Fullstack:</strong> Nâng cao kiến thức Java/Spring Boot & PostgreSQL, sẵn sàng đảm nhận các hệ thống ngân hàng & tài chính (Banking & Fintech).
+              </span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-pink-600 dark:text-brand-pink shrink-0 mt-0.5" />
+              <span>
+                <strong>Tối Ưu Trải Nghiệm & Hiệu Năng UI:</strong> Thành thạo xây dựng Rich-Text Editors (Lexical, Tiptap), Form đa bước phức tạp & Tích hợp cổng thanh toán Stripe.
+              </span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-pink-600 dark:text-brand-pink shrink-0 mt-0.5" />
+              <span>
+                <strong>Ownership & AI Vibe-Coding:</strong> Làm chủ quy trình phát triển từ BA spec đến UI/UX, áp dụng AI Agent để nhân bản tốc độ sản xuất code nhưng vẫn giữ Clean Architecture.
+              </span>
+            </li>
+            <li className="flex items-start gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-pink-600 dark:text-brand-pink shrink-0 mt-0.5" />
+              <span>
+                <strong>Linh Hoạt & Chịu Áp Lực:</strong> Đã quen với việc xử lý song song nhiều dự án client outsourcing, đáp ứng tiến độ release nghiêm ngặt.
+              </span>
+            </li>
+          </ul>
+        </div>
       </MotionCard>
     </section>
   );

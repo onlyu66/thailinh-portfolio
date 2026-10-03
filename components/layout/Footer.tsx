@@ -1,13 +1,15 @@
 "use client";
 
 import { usePortfolioData } from "@/lib/hooks/usePortfolioData";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   const { data } = usePortfolioData();
   const profile = data?.profile;
 
-  const email = profile?.email || "thaingoclinh.dev@gmail.com";
+  const email = profile?.email || "ngoclinhthai8@gmail.com";
+  const phone = profile?.phone || "+84 362 253 173";
+  const location = profile?.location || "Hà Nội, Việt Nam";
   const github = profile?.github || "https://github.com/linhtn-dev";
   const linkedin = profile?.linkedin || "https://linkedin.com/in/linhtn-dev";
 
@@ -22,8 +24,7 @@ export default function Footer() {
             Hãy Cùng Nhau Xây Dựng Sản Phẩm Tuyệt Vời⚡
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-sm">
-            Tôi luôn sẵn sàng tiếp nhận các cơ hội công việc mới. Hãy liên hệ qua
-            email hoặc mạng xã hội.
+            Tôi luôn sẵn sàng tiếp nhận các dự án và cơ hội công việc mới (Frontend / Fullstack Java/Spring Boot).
           </p>
         </div>
 
@@ -34,6 +35,15 @@ export default function Footer() {
           >
             <Mail className="w-4 h-4" /> {email}
           </a>
+          <a
+            href={`tel:${phone}`}
+            className="px-6 py-3.5 rounded-xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border hover:border-slate-400 dark:hover:border-slate-500 text-slate-800 dark:text-white transition-all flex items-center gap-2 shadow-sm"
+          >
+            <Phone className="w-4 h-4 text-purple-600 dark:text-brand-purple" /> {phone}
+          </a>
+          <span className="px-6 py-3.5 rounded-xl bg-white dark:bg-brand-card border border-slate-200 dark:border-brand-border text-slate-800 dark:text-white flex items-center gap-2 shadow-sm">
+            <MapPin className="w-4 h-4 text-cyan-600 dark:text-brand-cyan" /> {location}
+          </span>
           <a
             href={github}
             target="_blank"
@@ -53,7 +63,7 @@ export default function Footer() {
         </div>
 
         <p className="text-xs text-slate-500 dark:text-slate-600 font-mono pt-8">
-          © 2026 Designed & Built with React Mindset, Tailwind CSS & AI Tools.
+          © 2026 Thái Ngọc Linh · Built with React 18, Next.js, Tailwind CSS & AI Tools.
         </p>
       </div>
     </footer>

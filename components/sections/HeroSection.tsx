@@ -3,7 +3,7 @@
 import Typewriter from "@/components/Typewriter";
 import { usePortfolioData } from "@/lib/hooks/usePortfolioData";
 import { motion } from "framer-motion";
-import { ArrowRight, Code, Github } from "lucide-react";
+import { ArrowRight, Code, Github, Mail, MapPin, Phone } from "lucide-react";
 import { HeroSkeleton } from "../Skeletons";
 
 export default function HeroSection() {
@@ -50,6 +50,28 @@ export default function HeroSection() {
           <Typewriter />
         </div>
 
+        {/* Info badges (Location, Phone, Email) */}
+        <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-600 dark:text-slate-400">
+          <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800">
+            <MapPin className="w-3.5 h-3.5 text-cyan-600 dark:text-brand-cyan" />
+            {profile.location}
+          </span>
+          <a
+            href={`tel:${profile.phone}`}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-700 transition-colors"
+          >
+            <Phone className="w-3.5 h-3.5 text-purple-600 dark:text-brand-purple" />
+            {profile.phone}
+          </a>
+          <a
+            href={`mailto:${profile.email}`}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-700 transition-colors"
+          >
+            <Mail className="w-3.5 h-3.5 text-pink-600 dark:text-brand-pink" />
+            {profile.email}
+          </a>
+        </div>
+
         <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
           {profile.bio}
         </p>
@@ -62,7 +84,7 @@ export default function HeroSection() {
             href="#projects"
             className="px-6 py-3.5 rounded-xl bg-slate-900 text-white dark:bg-brand-cyan dark:text-black font-bold text-sm hover:opacity-90 transition-all shadow-md dark:shadow-[0_0_25px_rgba(0,240,255,0.3)] flex items-center gap-2"
           >
-            Xem Sản Phẩm <ArrowRight className="w-4 h-4" />
+            Xem Dự Án <ArrowRight className="w-4 h-4" />
           </motion.a>
           <motion.a
             whileHover={{ scale: 1.04, y: -2 }}
@@ -114,11 +136,19 @@ export default function HeroSection() {
             </span>
             ,{"\n"}  role:{" "}
             <span className="text-emerald-600 dark:text-emerald-400">
-              &apos;Frontend Engineer&apos;
+              &apos;Frontend Developer (React/Next.js)&apos;
             </span>
-            ,{"\n"}  coreStack: [
+            ,{"\n"}  growingTarget:{" "}
             <span className="text-emerald-600 dark:text-emerald-400">
-              &apos;React 18&apos;
+              &apos;Fullstack (Java/Spring Boot)&apos;
+            </span>
+            ,{"\n"}  experience:{" "}
+            <span className="text-emerald-600 dark:text-emerald-400">
+              &apos;2+ Years (7 Client Web Projects)&apos;
+            </span>
+            ,{"\n"}  frontendStack: [
+            <span className="text-emerald-600 dark:text-emerald-400">
+              &apos;React.js&apos;
             </span>
             ,{" "}
             <span className="text-emerald-600 dark:text-emerald-400">
@@ -128,41 +158,35 @@ export default function HeroSection() {
             <span className="text-emerald-600 dark:text-emerald-400">
               &apos;TypeScript&apos;
             </span>
-            ],{"\n"}  uiSystem: [
+            ],{"\n"}  backendKnowledge: [
             <span className="text-emerald-600 dark:text-emerald-400">
-              &apos;Tailwind CSS&apos;
+              &apos;Java&apos;
             </span>
             ,{" "}
             <span className="text-emerald-600 dark:text-emerald-400">
-              &apos;Radix UI&apos;
+              &apos;Spring Boot&apos;
             </span>
             ,{" "}
             <span className="text-emerald-600 dark:text-emerald-400">
-              &apos;Shadcn&apos;
+              &apos;PostgreSQL&apos;
+            </span>
+            ,{" "}
+            <span className="text-emerald-600 dark:text-emerald-400">
+              &apos;Docker&apos;
             </span>
             ],{"\n"}  workflow:{" "}
             <span className="text-emerald-600 dark:text-emerald-400">
               &apos;AI Vibe-Coding x Clean Architecture&apos;
             </span>
-            ,{"\n"}  codeQuality: {"{"}
-            {"\n"}    strictTypeScript:{" "}
-            <span className="text-purple-600 dark:text-brand-purple font-bold">
-              true
+            ,{"\n"}  targetDomains: [
+            <span className="text-emerald-600 dark:text-emerald-400">
+              &apos;Banking&apos;
             </span>
-            ,{"\n"}    unitTesting:{" "}
-            <span className="text-purple-600 dark:text-brand-purple font-bold">
-              true
+            ,{" "}
+            <span className="text-emerald-600 dark:text-emerald-400">
+              &apos;Fintech&apos;
             </span>
-            ,{"\n"}    performanceFirst:{" "}
-            <span className="text-purple-600 dark:text-brand-purple font-bold">
-              true
-            </span>
-            ,{"\n"}    zeroBlindMerge:{" "}
-            <span className="text-purple-600 dark:text-brand-purple font-bold">
-              true
-            </span>
-            ,{"\n"}  {"}"}
-            {"\n"}
+            ],{"\n"}
             {"};"}
           </pre>
         </div>

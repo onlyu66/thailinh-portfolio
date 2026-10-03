@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 
 const WORDS = [
-  "Frontend Engineer",
-  "React 18 & Next.js Specialist",
-  "AI Vibe-Coder",
-  "UI/UX & Performance Enthusiast",
+  "Frontend Developer (React.js / Next.js)",
+  "Growing into Fullstack (Java / Spring Boot)",
+  "Rich-Text Editor & Stripe Payment Specialist",
+  "AI Vibe-Coder x Clean Architecture",
 ];
 
 export default function Typewriter() {
